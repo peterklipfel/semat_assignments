@@ -118,5 +118,12 @@ describe CartesianProduct do
       c.each { i += 1 }
       i.should == 4
     end
+
+    it "should handle empty arrays" do
+      c = CartesianProduct.new([:a,:b], [])
+      i = 0
+      c.each { |elt| i+=1 }
+      i.should == 0
+    end
   end
 end
