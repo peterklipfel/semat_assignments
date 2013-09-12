@@ -53,3 +53,31 @@ describe Foo do
     end
   end
 end
+
+describe Numeric do
+  describe "conversions" do
+    it "should convert dollars to other currencies" do
+      10.dollars.in(:yen).should == 10/0.013
+      10.dollars.in(:euros).should == 10/1.292
+      10.dollars.in(:rupees).should == 10/0.019
+    end
+
+    it "should convert yen to other currencies" do
+      10.yen.in(:dollars).should == 10*0.013
+      10.yen.in(:euros).should == 10*0.013/1.292
+      10.yen.in(:rupees).should == 10*0.013/0.019
+    end
+
+    it "should convert euros to other currencies" do
+      10.euros.in(:dollars).should == 10*1.292
+      10.euros.in(:rupees).should == 10*1.292/0.019
+      10.euros.in(:yen).should == 10*1.292/0.013
+    end
+
+    it "should convert rupees to other currencies" do
+      10.rupees.in(:dollars).should == 10*0.019
+      10.rupees.in(:euros).should == 10*0.019/1.292
+      10.rupees.in(:yen).should == 10*0.019/0.013
+    end
+  end
+end
