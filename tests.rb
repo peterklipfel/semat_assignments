@@ -81,3 +81,17 @@ describe Numeric do
     end
   end
 end
+
+describe String do
+  describe '#palindrome?' do
+    it "should identify palindromes" do
+      "abba".should be_palindrome
+      "aaaaaaaaaaaaaaa".should be_palindrome
+    end
+
+    it "should identify non-palindromes" do
+      "not a palindrome".should_not be_palindrome
+      "a different not palindrome".should_not be_palindrome
+    end
+  end
+end

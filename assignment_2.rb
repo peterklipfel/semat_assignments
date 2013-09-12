@@ -56,7 +56,7 @@ end
 
 
 #########################################################
-############# Part 2
+############# Part 3
 #########################################################
 
 class Numeric
@@ -72,5 +72,11 @@ class Numeric
     else
       super
     end
+  end
+end
+
+class String
+  def palindrome?
+    self.gsub(/[^a-zA-Z]/, '').downcase.to_s == self.gsub(/[^a-zA-Z]/, '').downcase.to_s.reverse
   end
 end
