@@ -95,3 +95,17 @@ describe String do
     end
   end
 end
+
+describe Enumerable do
+  describe '#palindrome' do
+    it 'should identify palindrom-like enumerables' do
+      [1, 2, 3, 2, 1].should be_palindrome
+      [1, ["asdf", 3], {example: 3}, ["asdf", 3], 1].should be_palindrome
+    end
+
+    it "should identify non palindrom-like enumerables" do
+      [1, 2, 3, 4, 5, 6, 7].should_not be_palindrome
+      [["asdf", 2], 3, {:asdf => 2}].should_not be_palindrome
+    end
+  end
+end

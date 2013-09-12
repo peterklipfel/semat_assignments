@@ -80,3 +80,9 @@ class String
     self.gsub(/[^a-zA-Z]/, '').downcase.to_s == self.gsub(/[^a-zA-Z]/, '').downcase.to_s.reverse
   end
 end
+
+module Enumerable
+  def palindrome?
+    self == self.reverse
+  end
+end
