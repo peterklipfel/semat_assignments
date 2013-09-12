@@ -19,3 +19,30 @@ describe Dessert do
     end
   end
 end
+
+describe JellyBean do
+  before do
+    @tastey_jelly = JellyBean.new('jelly bean', 30, 'caramel')
+    @nasty_jelly = JellyBean.new('jelly bean', 30, 'black licorice')
+  end
+  describe "#deliciious?" do
+    describe "for a tastey jelly" do
+      it { @tastey_jelly.should be_delicious }
+    end
+    describe "for a nasty jelly" do
+      it { @nasty_jelly.should_not be_delicious }
+    end
+  end
+end
+
+describe Foo do
+  describe '#attr_accessor_with_history' do
+    it 'should track the number of times a variable is set' do
+      f = Foo.new
+      f.bar = 1
+      f.bar = 'flooding'
+      f.bar = :wat
+      f.bar_history.length.should == 3
+    end
+  end
+end
