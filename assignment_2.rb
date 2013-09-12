@@ -42,7 +42,7 @@ class Class
     attr_reader attr_name+"_history" # create bar_history getter
     class_eval %Q[
       def #{attr_name}=(val)
-        @#{attr_name}_history ||= []
+        @#{attr_name}_history ||= [nil]
         @#{attr_name}_history << val
         @#{attr_name} = val
       end

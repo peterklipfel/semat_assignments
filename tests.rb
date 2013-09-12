@@ -42,7 +42,14 @@ describe Foo do
       f.bar = 1
       f.bar = 'flooding'
       f.bar = :wat
-      f.bar_history.length.should == 3
+      f.bar_history.length.should == 4 # because it's instantiated as nil
+    end
+
+    it "should set the correct history" do
+      f = Foo.new
+      f.bar = 1
+      f.bar = 2
+      f.bar_history.should == [nil, 1, 2]
     end
   end
 end
