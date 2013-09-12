@@ -86,3 +86,19 @@ module Enumerable
     self == self.reverse
   end
 end
+
+
+#########################################################
+############# Part 3
+#########################################################
+
+class CartesianProduct
+  include Enumerable
+  def initialize(list1, list2)
+    @cross_product = list1.map {|ele1| list2.map { |ele2| [ele1, ele2] } }.flatten(1)
+  end
+
+  def each
+    @cross_product.each{ yield }
+  end
+end

@@ -109,3 +109,14 @@ describe Enumerable do
     end
   end
 end
+
+describe CartesianProduct do
+  describe '#each' do
+    it 'should iterate the correct number of times' do
+      c = CartesianProduct.new([1, 2], ['1', '2'])
+      i = 0
+      c.each { i += 1 }
+      i.should == 4
+    end
+  end
+end
